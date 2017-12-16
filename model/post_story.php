@@ -1,0 +1,2 @@
+<?php $req = $bdd->prepare('INSERT INTO posts (texte, auteur, titre_post, categorie, timepost) VALUES(?, ?, ?, ?, NOW())');
+$req->execute(array($_POST['msg'], $_POST['pseudo'], $_POST['titre_post'], $_POST['categorie']));
