@@ -2,17 +2,26 @@
 
 include('model/dbconnect.php');
 
-$req = $bdd->query('SELECT pseudo, mail FROM membres');
+$req = $bdd->prepare('SELECT COUNT(*) AS nb_pseudo FROM membres WHERE pseudo = ?');
+$req->execute(array($_POST['pseudo']));
 
-while ($donnees = $req->fetch()) {
-	if(isset($_POST['pseudo']) && isset($_POST['password']) && $_POST['pseudo'] == $donnees['pseudo']){
-		echo '<div class="register">Votre pseudo est déjà pris. Merci d\'en choisir un autre ! </div>';
-	}
-	elseif(isset($_POST['pseudo']) && isset($_POST['password']) && $_POST['mail'] == $donnees['mail']){
-		echo '<div class="register">Votre adresse email est déjà prise. Merci d\'en choisir une autre ! </div>';
-	}
-	else{
-		$pseudo = $_POST['pseudo'];
+$donnees = $req->fetch();
+
+$req2 = $bdd->prepare('SELECT COUNT(*) AS nb_mail FROM membres WHERE mail = ?');
+$req2->execute(array($_POST['mail']));
+
+$donnees2 = $req2->fetch();
+
+if($donnees['nb_pseudo'] > 0) {
+	echo '<div class="register">Votre pseudo est déjà pris. Merci d\'en choisir un autre ! </div> <br />';
+	require('view/register.php');
+}
+elseif ($donnees2['nb_mail'] > 0) {
+	echo '<div class="register">Votre adresse email est déjà prise. Merci d\'en choisir une autre ! </div> <br />';
+	require('view/register.php');
+}
+elseif ($donnees['nb_pseudo']  == 0 && $donnees2['nb_mail'] == 0 ) {
+	$pseudo = $_POST['pseudo'];
 		$password = $_POST['password'];
 		$password_hash = sha1("Hyl".$password."Pv7");
 		$mail = $_POST['mail'];
@@ -23,11 +32,12 @@ while ($donnees = $req->fetch()) {
 		$_SESSION['pseudo'] = $pseudo;
 		$_SESSION['password'] = $password_hash;
 		$_SESSION['mail'] = $mail;
-	break;
 
-	}
+		$req->closeCursor ();
+		$req2->closeCursor ();
+
+header ('location:/parler/index.php');
 }
 
 $req->closeCursor ();
-
-header ('location:/parler/index.php');
+$req2->closeCursor ();
