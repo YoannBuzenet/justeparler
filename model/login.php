@@ -16,6 +16,15 @@ while ($donnees = $req_login->fetch()) {
 		$_SESSION['user_connected'] = true;
 		$_SESSION['pseudo'] = $pseudo;
 		$_SESSION['password'] = $password_hash;
+		//Ici, on écrit l'éventuel post/comment temporaire en BDD
+			if(isset($_SESSION['must_connect_or_log'] && $_SESSION['must_connect_or_log'])){
+				if(isset($_SESSION['posting_story']) && $_SESSION['posting_story']){
+
+				}
+				elseif(isset($_SESSION['posting_comment']) && $_SESSION['posting_comment']) {
+					
+				}
+			}
 		break;
 	}
 }

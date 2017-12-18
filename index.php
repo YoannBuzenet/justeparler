@@ -5,7 +5,14 @@ require('model/dbconnect.php');
 session_start();
 
 // Affichage en détail d'une histoire
-if(isset($_GET['histoire'])){
+
+if(isset($_SESSION['must_connect_or_log']) && $_SESSION['must_connect_or_log'] == true) {
+
+	include('view/must_connect_or_log.php');
+
+}
+
+elseif(isset($_GET['histoire'])){
 
 	include 'controllers/histoire_en_detail.php';
 
