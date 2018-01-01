@@ -6,7 +6,7 @@ session_start();
 
 // Affichage en détail d'une histoire
 
-if(isset($_SESSION['must_connect_or_log']) && $_SESSION['must_connect_or_log'] == true) {
+if(isset($_SESSION['must_connect_or_log']) && $_SESSION['must_connect_or_log'] =='must_log') {
 
 	include('view/must_connect_or_log.php');
 
