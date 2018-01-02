@@ -24,12 +24,32 @@ while ($donnees = $req_login->fetch()) {
 						$req->execute(array(session_id()));
 						$donnees = $req->fetch();
 
-					// On écrit dans le normal, puis on supprimera dans le temporaire
+					// On écrit dans le normal
 						$req2 = $bdd->prepare('INSERT INTO posts (texte, titre_post, auteur, categorie, timepost) VALUES(?, ?, ?, ?, ?)');
-						$req2->execute(array($donnees['temporary_text'], $donnees['temporary_title'],$donnees['temporary_author'], $donnees['temporary_category'], $donnees['date_temporary_post']));
+						$req2->execute(array($donnees['temporary_text'], $donnees['temporary_title'],$pseudo, $donnees['temporary_category'], $donnees['date_temporary_post']));
+						$req2->closeCursor ();
+
+					// On supprime du temporaire
+					$req3 = $bdd->prepare('DELETE FROM temporary_posts WHERE id_session = ?');
+						$req3->execute(array(session_id()));
+						$req3->closeCursor ();	
 				}	
 				elseif(isset($_SESSION['posting_comment']) && $_SESSION['posting_comment']) {
+					// On va aller chercher le commentaire dans le temporaire
+					$req5 = $bdd->prepare('SELECT id_article,temporary_auteur, temporary_content, temporary_time_comment FROM temporary_comments WHERE id_session = ?');
+					$req5->execute(array(session_id()));
+					$donnees = $req5->fetch();
 
+					// On va poster le commentaire
+
+					$req6 = $bdd->prepare('INSERT INTO comments (id_article, auteur, content, timecomment) VALUES(?, ?, ?, ?)');
+					$req6->execute(array($donnees['id_article'], $pseudo, $donnees['temporary_content'], $donnees['temporary_time_comment']));
+					$req6->closeCursor ();
+
+					// On le supprime du temporaire
+					$req7 = $bdd->prepare('DELETE FROM temporary_comments WHERE id_session = ?');
+					$req7->execute(array(session_id()));
+					$req7->closeCursor ();
 				}	
 		break;
 	}
@@ -37,6 +57,6 @@ while ($donnees = $req_login->fetch()) {
 
 
 $req_login->closeCursor ();
-$req2->closeCursor ();
+
 
 header ('location:/parler/index.php');

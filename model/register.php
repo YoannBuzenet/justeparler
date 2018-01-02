@@ -42,17 +42,23 @@ elseif ($donnees['nb_pseudo']  == 0 && $donnees2['nb_mail'] == 0 ) {
 		$req3->execute(array(session_id()));
 		$donnees = $req3->fetch();
 
-		// On écrit dans le normal, puis on supprimera dans le temporaire
+		// On écrit dans le normal
 		$req4 = $bdd->prepare('INSERT INTO posts (texte, titre_post, auteur, categorie, timepost) VALUES(?, ?, ?, ?, ?)');
-		$req4->execute(array($donnees['temporary_text'], $donnees['temporary_title'],$donnees['temporary_author'], $donnees['temporary_category'], $donnees['date_temporary_post']));
-		
+		$req4->execute(array($donnees['temporary_text'], $donnees['temporary_title'],$pseudo, $donnees['temporary_category'], $donnees['date_temporary_post']));
+
 		$req3->closeCursor ();
 		$req4->closeCursor ();
 
+		// On supprime dans le temporaire
+		$req5 = $bdd->prepare('DELETE FROM temporary_posts WHERE id_session = ?');
+		$req5->execute(array(session_id()));
+		$req5->closeCursor ();
+
 		//Ici, on écrit l'éventuel commentaire en BDD
+
+$req->closeCursor ();
+$req2->closeCursor ();
 
 header ('location:/parler/index.php');
 }
 
-$req->closeCursor ();
-$req2->closeCursor ();

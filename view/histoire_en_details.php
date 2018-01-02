@@ -1,4 +1,12 @@
-	<?php echo '<div class="histoire_en_details">'. htmlspecialchars($contenu_histoire['texte']). '<br /> <strong>' . htmlspecialchars($contenu_histoire['auteur']). '</strong> <br />'. htmlspecialchars($contenu_histoire['timepost']). '<br /><br />' ;	
+	<?php 
+
+	if(isset($_SESSION['must_connect_or_log']) && $_SESSION['must_connect_or_log'] =='must_log') {
+
+		include('must_connect_or_log.php');
+
+	}
+
+	echo '<div class="histoire_en_details">'. htmlspecialchars($contenu_histoire['texte']). '<br /> <strong>' . htmlspecialchars($contenu_histoire['auteur']). '</strong> <br />'. htmlspecialchars($contenu_histoire['timepost']). '<br /><br />' ;	
 	$contenu_article_en_detail->closeCursor();
 
 

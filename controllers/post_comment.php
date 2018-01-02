@@ -2,9 +2,14 @@
 
 require('../model/dbconnect.php');
 
-//mettre une sous couche pour poster commentaire logué en vrai base, ou poster non logué en base_temp
-//if(isset($_SESSION['']))
-require('../model/post_comment.php');
+
+if(isset($_SESSION['pseudo'])){
+	require('../model/post_comment.php');
+}
+elseif(!isset($_SESSION['pseudo'])){
+
+	require('../model/post_temporary_comment.php');	
+}
 
 // Set Cookie
 if(isset($_POST['pseudo'])){
