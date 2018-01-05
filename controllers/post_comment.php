@@ -1,7 +1,7 @@
 <?php
 
 require('../model/dbconnect.php');
-
+session_start();
 
 if(isset($_SESSION['pseudo'])){
 	require('../model/post_comment.php');
