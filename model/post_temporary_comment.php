@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $_SESSION['must_connect_or_log'] = 'must_log';
 $_SESSION['posting_comment'] = true;

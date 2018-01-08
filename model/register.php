@@ -78,6 +78,6 @@ elseif ($donnees['nb_pseudo']  == 0 && $donnees2['nb_mail'] == 0 ) {
 $req->closeCursor ();
 $req2->closeCursor ();
 
-header ('location:/parler/index.php');
+header ('location:/index.php');
 }
 

@@ -58,7 +58,7 @@
 		<p> Qu'avez-vous sur le coeur ? </p>
 		<p> Travail, amour, solitude, journée de merde ? Peu importe ! Restez anonyme, et partagez un peu avec d'autres personnes... </p>
 			<div class="main_form">
-	<form method="POST" action="index.php?section=post">
+	<form method="POST" action='./index.php?section=post'>
 	<label> Pseudo <input type="text" name="pseudo" <?php if(isset($_SESSION['pseudo'])){ echo 'value="'.$_SESSION['pseudo']. '"';} elseif(isset($_COOKIE['pseudo'])){ echo 'value ="'. $_COOKIE['pseudo'] .'"';} ?> required /> </label> <br />
 	<label> Votre message : <textarea name="msg" required placeholder="Votre message..."> </textarea></label> <br />
 	<label> Titre de votre message <input type="text" name="titre_post" required /> </label> <br />

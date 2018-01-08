@@ -1,4 +1,7 @@
 <?php 
+
+ini_set('display_errors',1);
+
 //Connection BDD
 require('model/dbconnect.php');
 
@@ -26,6 +29,11 @@ elseif(isset($_GET['section']) && $_GET['section']=="login"){
 elseif(isset($_GET['section']) && $_GET['section']=="post"){
 
 	include 'controllers/post.php';
+}
+
+elseif(isset($_GET['section']) && $_GET['section']=="post_comment"){
+
+	include 'controllers/post_comment.php';
 }
 
 elseif(isset($_GET['section']) && $_GET['section']=="login_"){
