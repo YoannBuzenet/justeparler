@@ -6,6 +6,23 @@
 
 	}
 
+	?>
+
+	<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="theme.css" />
+		<title> Parler</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+	</head>
+
+<body>
+
+	<?php
+
 	echo '<div class="histoire_en_details">'. htmlspecialchars($contenu_histoire['texte']). '<br /> <strong>' . htmlspecialchars($contenu_histoire['auteur']). '</strong> <br />'. htmlspecialchars($contenu_histoire['timepost']). '<br /><br />' ;	
 	$contenu_article_en_detail->closeCursor();
 
