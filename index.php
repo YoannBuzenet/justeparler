@@ -23,6 +23,11 @@ elseif(isset($_GET['section']) && $_GET['section']=="login"){
 	include 'view/login.php';
 }
 
+elseif(isset($_GET['section']) && $_GET['section']=="post"){
+
+	include 'controllers/post.php';
+}
+
 elseif(isset($_GET['section']) && $_GET['section']=="login_"){
 
 	include 'controllers/login.php';

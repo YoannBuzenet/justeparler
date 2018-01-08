@@ -34,7 +34,7 @@
 	$commentaires->closeCursor();
 ?>
 	<div class="comment_form">
-		<form method="POST" action="controllers/post_comment.php">
+		<form method="POST" action="index.php?section=post">
 			<label> Pseudo <input type="text" name="auteur"'; <?php if(isset($_SESSION['pseudo'])){ echo 'value="'.$_SESSION['pseudo']. '"';} elseif(isset($_COOKIE['pseudo'])){ echo 'value ="'. $_COOKIE['pseudo'] .'"';} ?> required /> </label> <br />
 			<label> Votre message : <textarea name="text_comment" placeholder="Votre commentaire..." required></textarea> </label> 
 			<br /> 
