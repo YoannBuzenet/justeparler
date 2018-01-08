@@ -1,6 +1,5 @@
 <?php 
 
-session_start();
 
 if(isset($_SESSION['pseudo'])){ 
 $req = $bdd->prepare('INSERT INTO posts (texte, auteur, titre_post, categorie, timepost) VALUES(?, ?, ?, ?, NOW())');
