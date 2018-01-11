@@ -3,9 +3,13 @@
 <html>
 
 	<head>
-		<link rel="stylesheet" type="text/css" href="theme.css" />
+		<link rel="stylesheet" type="text/css" href="css/theme.css" />
 		<title> Parler</title>
 		<meta charset="utf-8" />
+		<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 		<meta name="viewport" content="width=device-width" />
 	</head>
 
@@ -19,6 +23,8 @@
 	?>
 		</nav>	
 	</header>
+  <!-- <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a> -->
+	
 <?php
 	if(isset($_SESSION['user_first_connected']) && $_SESSION['user_first_connected'] == 'did_connect' && !isset($_SESSION['alert_please_retry'])) {
 		echo '<div class="login_ok"> Vous êtes connecté ! </div>';
@@ -39,5 +45,6 @@
 	require('controllers/all_stories.php');	
 
 ?>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 </html>

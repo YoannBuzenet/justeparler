@@ -59,4 +59,4 @@ while ($donnees = $req_login->fetch()) {
 $req_login->closeCursor ();
 
 
-header ('location:/index.php');
+header ('location:./index.php');
