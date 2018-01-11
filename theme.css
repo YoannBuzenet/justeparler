@@ -3,7 +3,7 @@
 	padding: 0;
 }
 body {
- background-color: #eeeeee;
+ background-color: #ee00ee;
 }
 
 a {
@@ -164,8 +164,15 @@ label
 }
 
 @media only screen and (max-width: 923px) {
+	body {
+		background-color: blue;
+	}
+}	
 
 @media only screen and (max-width: 500px) {
+    body {
+        background-color: lightblue;
+    }
 	.main_div {
 	    display: flex;
 	    flex-direction: column;

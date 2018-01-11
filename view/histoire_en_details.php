@@ -13,9 +13,13 @@
 <html>
 
 	<head>
-		<link rel="stylesheet" type="text/css" href="theme.css" />
-		<title> Parler</title>
+		<link rel="stylesheet" type="text/css" href="css/theme.css" />
+		<title> Parler <?php echo ': '.htmlspecialchars($contenu_histoire['titre_post']); ?></title>
 		<meta charset="utf-8" />
+				<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 		<meta name="viewport" content="width=device-width" />
 	</head>
 
@@ -23,7 +27,7 @@
 
 	<?php
 
-	echo '<div class="histoire_en_details">'. htmlspecialchars($contenu_histoire['texte']). '<br /> <strong>' . htmlspecialchars($contenu_histoire['auteur']). '</strong> <br />'. htmlspecialchars($contenu_histoire['timepost']). '<br /><br />' ;	
+	echo '<div class="histoire_en_details"> <strong>'. htmlspecialchars($contenu_histoire['titre_post']). '</strong> <br /> <br /><div class="content_story">'.htmlspecialchars($contenu_histoire['texte']). '</div> <br /><strong>' . htmlspecialchars($contenu_histoire['auteur']). '</strong> <br />'. htmlspecialchars($contenu_histoire['timepost']). '</div> <br /><br />' ;	
 	$contenu_article_en_detail->closeCursor();
 
 
