@@ -44,6 +44,5 @@
 			<br /> 
 			<input type="hidden" name="id_article" <?php echo 'value="'. $_GET['histoire'].'"'; ?> />
 			<input type="submit" value ="Envoyer" />
+				<br /> <br /> <a href="index.php"> Retour à l'accueil </a>
 		</form>
-
-	<br /> <br /> <a href="index.php"> Retour à l'accueil </a>

@@ -23,7 +23,7 @@
 	?>
 		</nav>	
 	</header>
-  <a id="circle" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+  <a id="circle" class="btn-floating btn-large waves-effect waves-light red" href ="#form_bottom"><i class="material-icons">add</i></a>
 	
 <?php
 	if(isset($_SESSION['user_first_connected']) && $_SESSION['user_first_connected'] == 'did_connect' && !isset($_SESSION['alert_please_retry'])) {

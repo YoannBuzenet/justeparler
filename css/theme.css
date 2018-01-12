@@ -22,7 +22,7 @@ nav {
 	padding-top: 3px;
 	z-index: 1;
 	text-align: center;
-	height: 35px;
+	height: 25px;
 	background-color: #fff;
 	width: 100%;
 	position: fixed;
@@ -53,7 +53,7 @@ label
 
 
 .sousbody {
-	margin-top: 50px;
+	margin-top: 10%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -106,6 +106,12 @@ label
 
 .pic_comments{
 	margin-right: 2px;
+}
+
+.comment_form {
+	display : flex;
+	justify-content: center;
+	margin-top: 15px;
 }
 
 .titre_histoire {
@@ -186,6 +192,15 @@ label
  	 position:fixed;
  	 bottom : 50px;
  	 right : 50px;
+}
+
+@media only screen and (max-width: 716px) {
+.sousbody {
+	margin-top: 15%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
 }
 
 }
