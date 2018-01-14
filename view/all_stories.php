@@ -59,19 +59,25 @@
 		<p> Travail, amour, solitude, journée de merde ? Peu importe ! Restez anonyme, et partagez un peu avec d'autres personnes... </p>
 			<div class="main_form">
 	<form id ="form_bottom" method="POST" action='./index.php?section=post'>
-	<label> Pseudo <input type="text" name="pseudo" <?php if(isset($_SESSION['pseudo'])){ echo 'value="'.$_SESSION['pseudo']. '"';} elseif(isset($_COOKIE['pseudo'])){ echo 'value ="'. $_COOKIE['pseudo'] .'"';} ?> required /> </label> <br />
-	<label> Votre message : <textarea name="msg" required placeholder="Votre message..."> </textarea></label> <br />
-	<label> Titre de votre message <input type="text" name="titre_post" required /> </label> <br />
-	<label> Catégorie :   <select name="categorie" required>
-		<option value="histoire_du_jour">Histoire du jour</option>
+	<label> Pseudo <input type="text" name="pseudo" <?php if(isset($_SESSION['pseudo'])){ echo 'value="'.$_SESSION['pseudo']. '"';} elseif(isset($_COOKIE['pseudo'])){ echo 'value ="'. $_COOKIE['pseudo'] .'"';} ?> required /> </label> 
+        <div class="input-field">
+          <textarea id="textarea1" class="materialize-textarea name="msg" required></textarea>
+          <label for="textarea1">Votre message</label>
+      </div>
+
+	<label> Titre de votre message <input type="text" name="titre_post" required /> </label>
+	  <br />
+  <select class="browser-default" name="categorie" required>
+    <option value="" disabled selected>Catégorie</option>
+ 		<option value="histoire_du_jour">Histoire du jour</option>
 		<option value="travail">Travail</option>
 		<option value="couple">Couple</option>
 		<option value="celibataires">Célibataires</option>
 	    <option value="bons_moments">Bons moments</option>
 	    <option value="souvenirs">Souvenirs</option>
-	  </select>
+  </select>
 	  <br><br></label>
-	<input type="submit" value="Poster"/>
+	<input class="waves-effect waves-light btn" type="submit" value="Poster"/>
 	</form>
 		</div>
 	</div>

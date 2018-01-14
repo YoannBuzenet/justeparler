@@ -1,13 +1,3 @@
-	<?php 
-
-	if(isset($_SESSION['must_connect_or_log']) && $_SESSION['must_connect_or_log'] =='must_log') {
-
-		include('must_connect_or_log.php');
-
-	}
-
-	?>
-
 	<!DOCTYPE html>
 
 <html>
@@ -25,6 +15,16 @@
 
 <body>
 
+		<?php 
+
+	if(isset($_SESSION['must_connect_or_log']) && $_SESSION['must_connect_or_log'] =='must_log') {
+
+		include('must_connect_or_log.php');
+
+	}
+
+	?>
+
 	<?php
 
 	echo '<div class="histoire_en_details"> <strong>'. htmlspecialchars($contenu_histoire['titre_post']). '</strong> <br /> <br /><div class="content_story">'.htmlspecialchars($contenu_histoire['texte']). '</div> <br /><strong>' . htmlspecialchars($contenu_histoire['auteur']). '</strong> <br />'. htmlspecialchars($contenu_histoire['timepost']). '</div> <br /><br />' ;	
@@ -38,7 +38,7 @@
 	$commentaires->closeCursor();
 ?>
 	<div class="comment_form">
-		<form method="POST" action="./index.php?section=post_comment">
+		<form method="POST" action="./index.php?section=post_comment" class=>
 			<label> Pseudo <input type="text" name="auteur"'; <?php if(isset($_SESSION['pseudo'])){ echo 'value="'.$_SESSION['pseudo']. '"';} elseif(isset($_COOKIE['pseudo'])){ echo 'value ="'. $_COOKIE['pseudo'] .'"';} ?> required /> </label> <br />
 			<label> Votre message : <textarea name="text_comment" placeholder="Votre commentaire..." required></textarea> </label> 
 			<br /> 

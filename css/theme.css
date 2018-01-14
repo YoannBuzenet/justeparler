@@ -53,7 +53,7 @@ label
 
 
 .sousbody {
-	margin-top: 10%;
+	margin-top: 5%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -69,7 +69,7 @@ label
 .first_bubble{
 	padding : 5px;
 	border-radius: 5px;
-	background-color: red;
+	background-color: white;
 	max-width: 350px;
 	margin-bottom: 10px;
 }
@@ -79,6 +79,12 @@ label
 	border-radius: 5px;
 	background-color: blue;
 	min-height : 200px;
+}
+
+.confirmation_inscription{
+	position: fixed;
+	top: 0.05%;
+	right : 5%;
 }
 
 .main_form {
@@ -159,12 +165,26 @@ label
 	padding: 5px;
 }
 
+.login_form{
+	margin : auto;
+	width: 25%;
+}
+
 .login {
-	margin-top: 50px;
+
+}
+
+.register{
+
+}
+
+.register_form{
+	margin : auto;
+	width: 25%;
 }
 
 .login_ok {
-		margin: 50px auto 0 auto;
+		margin: 100px auto 0 auto;
 		background-color: green;
 		width: 35%;
 		text-align: center;
@@ -177,15 +197,64 @@ label
 		text-align: center;
 }
 
-.register{
-	margin-top: 50px;
-}
 
 #circle{
 	display: none;
 }
 
-@media only screen and (max-width: 923px) {
+.main_must_connect{
+text-align: center;
+margin : auto;
+
+}
+
+.green_message{
+	background-color: lightgreen;
+    border-radius: 10px;
+    padding: 5px;
+    width: 60%;
+    margin: 1% auto;
+}
+
+@media only screen and (max-width: 1500px) {
+.sousbody {
+	margin-top: 7%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.login_form{
+	margin: auto; 
+	width: 15%;
+}
+
+
+.register_form{
+	margin: auto; 
+	width: 15%;
+}
+}
+
+@media only screen and (max-width: 1200px) {
+.sousbody {
+	margin-top: 8%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.login_form{
+	margin: auto; 
+	width: 15%;
+}
+
+
+.register_form{
+	margin: auto; 
+	width: 15%;
+}
+}
+
+@media only screen and (max-width: 915px) {
 
 #circle{
 	display: inline-block;
@@ -193,23 +262,61 @@ label
  	 bottom : 50px;
  	 right : 50px;
 }
-
-@media only screen and (max-width: 716px) {
 .sousbody {
-	margin-top: 15%;
+	margin-top: 10%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 }
+
+.login_form{
+	margin: auto; 
+	width: 15%;
 }
 
+
+.register_form{
+	margin: auto; 
+	width: 15%;
 }
+}
+
+@media only screen and (max-width: 716px) {
+.sousbody {
+	margin-top: 18%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.login_form{
+	margin: auto; 
+	width: 25%;
+}
+
+
+.register_form{
+	margin: auto; 
+	width: 25%;
+}
+}
+
 
 @media only screen and (max-width: 500px) {
-	.main_div {
-	    display: flex;
-	    flex-direction: column;
-	    margin : 0 5% 0 5%;
-	    max-width: 500px;
-	}
+.main_div {
+	display: flex;
+	flex-direction: column;
+	margin : 0 5% 0 5%;
+	max-width: 500px;
+}
+.login_form{
+	margin: auto; 
+	width: 50%;
+}
+
+
+.register_form{
+	margin: auto; 
+	width: 50%;
+}
+
 }
