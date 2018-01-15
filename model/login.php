@@ -59,4 +59,9 @@ while ($donnees = $req_login->fetch()) {
 $req_login->closeCursor ();
 
 
+if(isset($_SESSION['posting_comment']) && $_SESSION['posting_comment'] == true){
+header ('location:./index.php?histoire='.$donnees['id_article']);
+}
+else {
 header ('location:./index.php');
+}

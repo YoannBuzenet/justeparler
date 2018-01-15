@@ -13,11 +13,11 @@ $req2->execute(array($_POST['mail']));
 $donnees2 = $req2->fetch();
 
 if($donnees['nb_pseudo'] > 0) {
-	echo '<div class="register">Votre pseudo est déjà pris. Merci d\'en choisir un autre ! </div> <br />';
+	$_SESSION['did_try_to_register_but_couldnt'] = 'nickname_failed';
 	require('view/register.php');
 }
 elseif ($donnees2['nb_mail'] > 0) {
-	echo '<div class="register">Votre adresse email est déjà prise. Merci d\'en choisir une autre ! </div> <br />';
+	$_SESSION['did_try_to_register_but_couldnt'] = 'mail_failed';
 	require('view/register.php');
 }
 elseif ($donnees['nb_pseudo']  == 0 && $donnees2['nb_mail'] == 0 ) {
@@ -33,6 +33,7 @@ elseif ($donnees['nb_pseudo']  == 0 && $donnees2['nb_mail'] == 0 ) {
 		$_SESSION['password'] = $password_hash;
 		$_SESSION['mail'] = $mail;
 		$_SESSION['must_connect_or_log'] = 'now_ok';
+		$_SESSION['user_first_registered'] = 'first_connection';
 
 		$req->closeCursor ();
 		$req2->closeCursor ();
@@ -74,10 +75,15 @@ elseif ($donnees['nb_pseudo']  == 0 && $donnees2['nb_mail'] == 0 ) {
 			$req8->execute(array(session_id()));
 			$req8->closeCursor ();
 	}
+}	
 
 $req->closeCursor ();
 $req2->closeCursor ();
 
+if(isset($_SESSION['posting_comment']) && $_SESSION['posting_comment'] == true){
+header ('location:./index.php?histoire='.$donnees['id_article']);
+}
+elseif(isset($_SESSION['posting_story']) && $_SESSION['posting_story'] == true){
 header ('location:./index.php');
 }
 

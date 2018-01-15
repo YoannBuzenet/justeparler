@@ -61,7 +61,7 @@
 	<form id ="form_bottom" method="POST" action='./index.php?section=post'>
 	<label> Pseudo <input type="text" name="pseudo" <?php if(isset($_SESSION['pseudo'])){ echo 'value="'.$_SESSION['pseudo']. '"';} elseif(isset($_COOKIE['pseudo'])){ echo 'value ="'. $_COOKIE['pseudo'] .'"';} ?> required /> </label> 
         <div class="input-field">
-          <textarea id="textarea1" class="materialize-textarea name="msg" required></textarea>
+          <textarea id="textarea1" class="materialize-textarea" name="msg" required></textarea>
           <label for="textarea1">Votre message</label>
       </div>
 

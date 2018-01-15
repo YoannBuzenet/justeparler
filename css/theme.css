@@ -41,6 +41,10 @@ nav {
 	margin-top: -3px;
 }
 
+#url_navbar{
+	text-decoration: none;
+}
+
 aside{
 	padding: 10px;
 }
@@ -117,7 +121,7 @@ label
 .comment_form {
 	display : flex;
 	justify-content: center;
-	margin-top: 15px;
+	margin-top: 50px;
 }
 
 .titre_histoire {
@@ -140,7 +144,7 @@ label
 
 .categorie{
 	font-size:small;
-	background-color : pink;
+	background-color : #ffcdd2;
 	border-radius: 5px;
 	padding : 2px;
 }
@@ -151,16 +155,29 @@ label
 
 .histoire_en_details{
 	background-color: white;
-	position: relative;
 	border: 1px solid;
 	border-radius: 5px;
-	margin: 0 5% 10px 5%;
+	margin: 80px auto 10px auto;
 	padding : 10px;
-	margin-top: 50px;
+	max-width: 600px;
+}
+
+.commentaires_histoire_en_detail {
+	text-align: center;
+	margin: 15px auto 5px auto;
+	max-width: 500px;
+	background-color: white;
+	padding : 5px 0 0 0;
+}
+
+.author_name {
+	font-size: 0.75em;
+	float: right;
+	margin-right: 10%;
 }
 
 .content_story {
-	background-color: lightgrey;
+	background-color: #ffebee;
 	border-radius: 5px;
 	padding: 5px;
 }
@@ -288,6 +305,15 @@ margin : auto;
 	flex-wrap: wrap;
 	justify-content: center;
 }
+
+.histoire_en_details{
+	margin: 75px 5% 10px 5%;
+}
+
+.commentaires_histoire_en_detail {
+
+	}
+
 .login_form{
 	margin: auto; 
 	width: 25%;
@@ -299,7 +325,11 @@ margin : auto;
 	width: 25%;
 }
 }
-
+@media only screen and (max-width: 550px) {
+	.commentaires_histoire_en_detail {
+	margin: 15px 5% 10px 5%;
+	}
+}
 
 @media only screen and (max-width: 500px) {
 .main_div {
