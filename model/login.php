@@ -36,7 +36,7 @@ while ($donnees = $req_login->fetch()) {
 				}	
 				elseif(isset($_SESSION['posting_comment']) && $_SESSION['posting_comment']) {
 					// On va aller chercher le commentaire dans le temporaire
-					$req5 = $bdd->prepare('SELECT id_article,temporary_auteur, temporary_content, temporary_time_comment FROM temporary_comments WHERE id_session = ?');
+					$req5 = $bdd->prepare('SELECT id_article, temporary_auteur, temporary_content, temporary_time_comment FROM temporary_comments WHERE id_session = ?');
 					$req5->execute(array(session_id()));
 					$donnees = $req5->fetch();
 
@@ -58,6 +58,9 @@ while ($donnees = $req_login->fetch()) {
 
 $req_login->closeCursor ();
 
+$req8 = $bdd->prepare('SELECT id_article FROM temporary_comments WHERE id_session = ?');
+$req8->execute(array(session_id()));
+$donnees = $req8->fetch();
 
 if(isset($_SESSION['posting_comment']) && $_SESSION['posting_comment'] == true){
 header ('location:./index.php?histoire='.$donnees['id_article']);
@@ -65,3 +68,5 @@ header ('location:./index.php?histoire='.$donnees['id_article']);
 else {
 header ('location:./index.php');
 }
+
+$req8->closeCursor ();
