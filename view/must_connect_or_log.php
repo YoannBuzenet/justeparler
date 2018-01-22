@@ -14,7 +14,7 @@
 
 <body>
 	<?php
-echo '<div class="main_must_connect"> <div class="green_message">Votre message a été sauvegardé.' ;
+echo '<div class="main_must_connect"> <div class="green_message">Votre message a été sauvegardé. Il n\'est pas encore publié.' ;
 echo '<br /> Pour publier votre message, merci de vous inscrire ou de vous connecter sur le site.</div>';
 echo '<h2> Se connecter </h2>';
 include('login.php');

@@ -43,6 +43,7 @@ nav {
 
 #url_navbar{
 	text-decoration: none;
+	color: white;
 }
 
 aside{
@@ -230,7 +231,7 @@ margin : auto;
 }
 
 .green_message{
-	background-color: lightgreen;
+	background-color: orange;
     border-radius: 10px;
     padding: 5px;
     width: 60%;
