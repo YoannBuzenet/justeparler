@@ -16,10 +16,10 @@
 <body>
 <?php
 if(isset($_SESSION['did_try_to_register_but_couldnt']) && $_SESSION['did_try_to_register_but_couldnt'] == 'nickname_failed') {
-	echo '<div class="register">Votre pseudo est déjà pris. Merci d\'en choisir un autre ! </div> <br />';
+	echo '<div class="register_view">Votre pseudo est déjà pris. Merci d\'en choisir un autre ! </div> <br />';
 	}
 elseif(isset($_SESSION['did_try_to_register_but_couldnt']) && $_SESSION['did_try_to_register_but_couldnt'] == 'mail_failed') {	
-	echo '<div class="register">Votre adresse email est déjà prise. Merci d\'en choisir une autre ! </div> <br />';
+	echo '<div class="register_view">Votre adresse email est déjà prise. Merci d\'en choisir une autre ! </div> <br />';
 	}
 
 ?>	

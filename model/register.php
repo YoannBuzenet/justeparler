@@ -14,11 +14,9 @@ $donnees2 = $req2->fetch();
 
 if($donnees['nb_pseudo'] > 0) {
 	$_SESSION['did_try_to_register_but_couldnt'] = 'nickname_failed';
-	require('view/register.php');
 }
 elseif ($donnees2['nb_mail'] > 0) {
 	$_SESSION['did_try_to_register_but_couldnt'] = 'mail_failed';
-	require('view/register.php');
 }
 elseif ($donnees['nb_pseudo']  == 0 && $donnees2['nb_mail'] == 0 ) {
 	$pseudo = $_POST['pseudo'];
