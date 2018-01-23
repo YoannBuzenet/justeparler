@@ -21,6 +21,11 @@ elseif(isset($_GET['histoire'])){
 
 }
 
+elseif(isset($_GET['section']) && $_GET['section']=="register_or_log"){
+
+	include 'view/partials/register_or_login.php';
+}
+
 elseif(isset($_GET['section']) && $_GET['section']=="login"){
 
 	include 'view/login.php';

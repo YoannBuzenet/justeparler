@@ -37,6 +37,10 @@ nav {
 	justify-content: center;
 }
 
+h2 {
+	text-align: center;
+}
+
 .title_fbar {
 	margin-top: -3px;
 }
@@ -90,6 +94,14 @@ label
 	position: fixed;
 	top: 0.05%;
 	right : 5%;
+	color:white;
+}
+
+.se_connecter{
+	position: fixed;
+	top: 0.05%;
+	right : 5%;
+	color:white;
 }
 
 .main_form {
@@ -329,6 +341,11 @@ margin : auto;
 	margin: auto; 
 	width: 25%;
 }
+
+.se_connecter {
+	display:none;
+}
+
 }
 @media only screen and (max-width: 550px) {
 	.commentaires_histoire_en_detail {
