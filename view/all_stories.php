@@ -30,7 +30,7 @@
 			if(preg_match("#www.youtube.com#", $donnees['URL_Youtube'])){
 				$url_embed_fabrication = explode("v=",$donnees['URL_Youtube']);
 
-				echo '<iframe width="460" height="315" src="https://www.youtube.com/embed/'. $url_embed_fabrication[1] .'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>';
+				echo '<iframe class="iframe" width="460" height="315" src="https://www.youtube.com/embed/'. $url_embed_fabrication[1] .'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>';
 			}
 		}
 		echo ' <p class="main_text">'.htmlspecialchars($donnees['texte']).'</p>'; 

@@ -26,6 +26,8 @@
 
 	?>
 
+<!-- Alert message ( if logged, non logged...) -->
+
 	<?php 	if(isset($_SESSION['user_first_connected']) && $_SESSION['user_first_connected'] == 'did_connect' && !isset($_SESSION['alert_please_retry'])) {
 		echo '<div class="login_ok"> Vous êtes connecté ! </div>';
 		$_SESSION['user_first_connected'] = 'forget_this';
@@ -52,8 +54,16 @@
 		?>
 
 	<?php
+	echo '<div class="histoire_en_details"> <div class="video_comment">' ;	
+		
+if(!empty($contenu_histoire['URL_Youtube'])){
+		if(preg_match("#www.youtube.com#", $contenu_histoire['URL_Youtube'])){
+			$url_embed_fabrication = explode("v=",$contenu_histoire['URL_Youtube']);
 
-	echo '<div class="histoire_en_details"> <strong>'. htmlspecialchars($contenu_histoire['titre_post']). '</strong> <br /> <br /><div class="content_story">'.htmlspecialchars($contenu_histoire['texte']). '</div> <br /><strong>' . htmlspecialchars($contenu_histoire['auteur']). '</strong> <br /> </div>' ;	
+			echo '<iframe width="460" height="315" src="https://www.youtube.com/embed/'. $url_embed_fabrication[1] .'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>';
+			}
+}
+ echo '</div> <br /> <strong>'. htmlspecialchars($contenu_histoire['titre_post']). '</strong> <br /> <br /><div class="content_story">'.htmlspecialchars($contenu_histoire['texte']). '</div> <br /><strong>' . htmlspecialchars($contenu_histoire['auteur']). '</strong> <br /> </div>' ;	
 	$contenu_article_en_detail->closeCursor();
 
 

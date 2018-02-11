@@ -195,6 +195,16 @@ label
 	padding: 5px;
 }
 
+.video_comment {
+	width: 80%;
+	margin : 0 auto;
+}
+
+.iframe {
+	margin: 8px auto 0 auto;
+	width: 100%;
+}
+
 .login_form{
 	margin : auto;
 	width: 25%;
@@ -372,3 +382,11 @@ margin : auto;
 }
 
 }
+
+@media only screen and (max-width: 380px) {
+
+.histoire {
+	margin-left: 2%;
+}
+
+}	

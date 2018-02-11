@@ -20,13 +20,13 @@ while ($donnees = $req_login->fetch()) {
 		//Ici, on écrit l'éventuel post/comment temporaire en BDD si le mec arrive à a se log
 				if(isset($_SESSION['posting_story']) && $_SESSION['posting_story']){
 					// On va chercher en temporaire afin de remettre en normal
-						$req = $bdd->prepare('SELECT temporary_text, temporary_author, temporary_title, temporary_category, id_session, date_temporary_post FROM temporary_posts WHERE id_session = ?');
+						$req = $bdd->prepare('SELECT temporary_text, temporary_author, temporary_title, temporary_category, id_session, temporary_URL_Youtube, date_temporary_post FROM temporary_posts WHERE id_session = ?');
 						$req->execute(array(session_id()));
 						$donnees = $req->fetch();
 
 					// On écrit dans le normal
 						$req2 = $bdd->prepare('INSERT INTO posts (texte, titre_post, auteur, categorie, timepost) VALUES(?, ?, ?, ?, ?)');
-						$req2->execute(array($donnees['temporary_text'], $donnees['temporary_title'],$pseudo, $donnees['temporary_category'], $donnees['date_temporary_post']));
+						$req2->execute(array($donnees['temporary_text'], $donnees['temporary_title'],$pseudo, $donnees['temporary_category'], $donnees['temporary_URL_Youtube'], $donnees['date_temporary_post']));
 						$req2->closeCursor ();
 
 					// On supprime du temporaire
