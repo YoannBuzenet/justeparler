@@ -25,6 +25,14 @@
 		elseif (htmlspecialchars($donnees['categorie']) == "souvenirs") {
 			echo '<p class="au_dessus_de_categorie"> <span class="categorie"> Souvenirs </span> </p>';
 		}
+// Check if there's a Youtube link, and if it leads really to youtube.com	
+		if(!empty($donnees['URL_Youtube'])){
+			if(preg_match("#www.youtube.com#", $donnees['URL_Youtube'])){
+				$url_embed_fabrication = explode("v=",$donnees['URL_Youtube']);
+
+				echo '<iframe width="460" height="315" src="https://www.youtube.com/embed/'. $url_embed_fabrication[1] .'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen> </iframe>';
+			}
+		}
 		echo ' <p class="main_text">'.htmlspecialchars($donnees['texte']).'</p>'; 
 
 		echo '<span class="auteur"> Par <strong>' .htmlspecialchars($donnees['auteur']).'</strong> </span> ' ;
@@ -77,6 +85,7 @@
 	    <option value="souvenirs">Souvenirs</option>
   </select>
 	  <br><br></label>
+	  <label> Voulez-vous ajouter une vidéo Youtube ? Si oui collez le lien ici (facultatif) <input type="text" name="URL_Youtube" /> </label>
 	<input class="waves-effect waves-light btn" type="submit" value="Poster"/>
 	</form>
 		</div>
