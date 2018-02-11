@@ -5,7 +5,7 @@
 					echo '<div class="confirmation_inscription"> Salut '. $_SESSION['pseudo']. ' !</div>';
 				}	
 				elseif(!isset($_SESSION['pseudo'])){
-					echo '<a href="index.php?section=register_or_log"><div class="se_connecter">Se Connecter / S\'inscrire </div></a>';
+					echo '<a href="index.php?section=register_or_log"><div class="se_connecter">Se Connecter / S\'inscrire </div> <img src="pictures/Login-Logo_mini.png" alt="Login picture" class="pic_login" /></a>';
 				}
 	
 	?>

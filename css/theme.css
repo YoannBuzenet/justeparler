@@ -260,6 +260,10 @@ margin : auto;
     margin: 1% auto;
 }
 
+.pic_login {
+	display: none;
+}
+
 @media only screen and (max-width: 1500px) {
 .sousbody {
 	margin-top: 7%;
@@ -355,6 +359,13 @@ margin : auto;
 .se_connecter {
 	display:none;
 }
+
+.pic_login {
+	display:inline;
+	position:fixed;
+ 	 bottom : 740px;
+ 	 right : 20px;
+	}
 
 }
 @media only screen and (max-width: 550px) {
