@@ -84,4 +84,7 @@ header ('location:./index.php?histoire='.$donnees['id_article']);
 elseif(isset($_SESSION['posting_story']) && $_SESSION['posting_story'] == true){
 header ('location:./index.php');
 }
+else{
+	header ('location:./index.php');
+}
 
